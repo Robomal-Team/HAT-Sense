@@ -1,0 +1,31 @@
+cat << 'EOF' > full_weather.py
+from sense_hat import SenseHat
+from time import sleep
+
+sense = SenseHat()
+sense.clear()
+
+# تعریف رنگ ها برای زیبایی بصری در ویدیو
+RED = [255, 0, 0]      # برای دما
+BLUE = [0, 150, 255]   # برای رطوبت
+GREEN = [0, 255, 0]    # برای فشار هوا
+
+while True:
+    # خواندن اطلاعات از 3 سنسور مختلف و گرد کردن اعداد
+    temp = round(sense.get_temperature(), 1)
+    humidity = round(sense.get_humidity(), 1)
+    pressure = round(sense.get_pressure(), 1)
+    
+    # چاپ در ترمینال (برای اینکه در مانیتور هم حرفه ای به نظر برسد)
+    print(f"Temp: {temp}C | Hum: {humidity}% | Press: {pressure}mb")
+    
+    # نمایش روی ماتریس LED با رنگ های مختلف
+    sense.show_message(f"T:{temp}C", text_colour=RED, scroll_speed=0.08)
+    sleep(0.5)
+    
+    sense.show_message(f"H:{humidity}%", text_colour=BLUE, scroll_speed=0.08)
+    sleep(0.5)
+    
+    sense.show_message(f"P:{pressure}", text_colour=GREEN, scroll_speed=0.08)
+    sleep(1)
+EOF
