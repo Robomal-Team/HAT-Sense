@@ -13,4 +13,4 @@ using Raspberry Pi 5 + Sense HAT + Monitor.
 Run the following command on Raspberry Pi:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/Robomal-Team/HAT-Sense/refs/heads/main/weather-station.py python3 -
+wget -qO- https://raw.githubusercontent.com/Robomal-Team/HAT-Sense/refs/heads/main/weather-station.py | python3 -
