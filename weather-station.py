@@ -1,4 +1,3 @@
-cat << 'EOF' > full_weather.py
 from sense_hat import SenseHat
 from time import sleep
 
